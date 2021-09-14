@@ -2,7 +2,7 @@ bl_info = {
     "name": "blenderCheckOverlaps",
     "description": "",
     "author": "Lucian James (LJ3D)",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (3, 0, 0),
     "location": "3D View > Tools",
     "category": "3D View"
@@ -182,7 +182,7 @@ class WM_OT_CleanUpMeshes(Operator):
 # ------------------------------------------------------------------------
 #    Panel in Object Mode
 # ------------------------------------------------------------------------
-
+'''
 # UI label that does wrapping
 def label_multiline(context, text, parent):
     chars = int(context.region.width / 7.5)
@@ -190,12 +190,13 @@ def label_multiline(context, text, parent):
     text_lines = wrapper.wrap(text=text)
     for text_line in text_lines:
         parent.label(text=text_line)
-
+'''
 
 # This is the UI panel
 class OBJECT_PT_CustomPanel(Panel):
     bl_label = "Find Overlaps"
     bl_idname = "OBJECT_PT_custom_panel"
+    bl_category = "Quality"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
@@ -211,11 +212,11 @@ class OBJECT_PT_CustomPanel(Panel):
         layout.prop(tool, "filter_oneObj")
         layout.prop(tool, "filter_search_oneObj")
         layout.prop_search(scene, "overlapObjFilter", scene, "objects")
-
+        '''
         infobox = layout.box()
         text = "Cleaning up unused meshes fixes the problem where objects that dont exist anymore are still detected as overlapping with other objects"
         label_multiline(context=context,text=text,parent=infobox)
-
+        '''
         layout.operator("wm.cleanupmeshes")
         layout.operator("wm.find_overlaps")
         layout.operator("wm.select_overlaps")
