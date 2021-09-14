@@ -2,7 +2,7 @@ bl_info = {
     "name": "blenderCheckOverlaps",
     "description": "",
     "author": "Lucian James (LJ3D)",
-    "version": (0, 0, 0),
+    "version": (1, 0, 0),
     "blender": (3, 0, 0),
     "location": "3D View > Tools",
     "category": "3D View"
